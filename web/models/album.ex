@@ -14,7 +14,7 @@ defmodule Tldb.Album do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:title, :artist, :song])
-    |> validate_required([:title, :artist, :song])
+    |> cast(params, [:title, :artist])
+    |> validate_required([:title, :artist])
   end
 end

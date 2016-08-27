@@ -3,7 +3,7 @@ defmodule Tldb.AlbumTest do
 
   alias Tldb.Album
 
-  @valid_attrs %{artist: "some content", song: "some content", title: "some content"}
+  @valid_attrs %{artist: "some content", title: "some content"}
   @invalid_attrs %{}
 
   test "changeset with valid attributes" do

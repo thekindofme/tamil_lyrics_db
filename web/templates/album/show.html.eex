@@ -13,8 +13,8 @@
   </li>
 
   <li>
-    <strong>Song:</strong>
-    <%= @album.song %>
+    <strong>Songs:</strong>
+    
   </li>
 
 </ul>

@@ -2,7 +2,7 @@ defmodule Tldb.AlbumControllerTest do
   use Tldb.ConnCase
 
   alias Tldb.Album
-  @valid_attrs %{artist: "some content", song: "some content", title: "some content"}
+  @valid_attrs %{artist: "some content", title: "some content"}
   @invalid_attrs %{}
 
   test "lists all entries on index", %{conn: conn} do

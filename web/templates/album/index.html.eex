@@ -15,7 +15,6 @@
     <tr>
       <td><%= album.title %></td>
       <td><%= album.artist %></td>
-      <td><%= album.songs %></td>
 
       <td class="text-right">
         <%= link "Show", to: album_path(@conn, :show, album), class: "btn btn-default btn-xs" %>
