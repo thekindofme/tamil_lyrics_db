@@ -1,0 +1,32 @@
+<h2>Listing songs</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Native lyrics</th>
+      <th>Translated to en lyrics</th>
+      <th>Phonetic script</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for song <- @songs do %>
+    <tr>
+      <td><%= song.title %></td>
+      <td><%= song.native_lyrics %></td>
+      <td><%= song.translated_to_en_lyrics %></td>
+      <td><%= song.phonetic_script %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: song_path(@conn, :show, song), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: song_path(@conn, :edit, song), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: song_path(@conn, :delete, song), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New song", to: song_path(@conn, :new) %>

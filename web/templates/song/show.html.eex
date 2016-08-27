@@ -1,0 +1,28 @@
+<h2>Show song</h2>
+
+<ul>
+
+  <li>
+    <strong>Title:</strong>
+    <%= @song.title %>
+  </li>
+
+  <li>
+    <strong>Native lyrics:</strong>
+    <%= @song.native_lyrics %>
+  </li>
+
+  <li>
+    <strong>Translated to en lyrics:</strong>
+    <%= @song.translated_to_en_lyrics %>
+  </li>
+
+  <li>
+    <strong>Phonetic script:</strong>
+    <%= @song.phonetic_script %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: song_path(@conn, :edit, @song) %>
+<%= link "Back", to: song_path(@conn, :index) %>
