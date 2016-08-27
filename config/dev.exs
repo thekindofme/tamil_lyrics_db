@@ -36,8 +36,6 @@ config :phoenix, :stacktrace_depth, 20
 # Configure your database
 config :tldb, Tldb.Repo,
   adapter: Ecto.Adapters.Postgres,
-  #username: "postgres",
-  #password: "postgres",
   port: 15432,
   database: "tldb_dev",
   hostname: "localhost",
