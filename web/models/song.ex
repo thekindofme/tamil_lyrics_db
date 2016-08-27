@@ -6,6 +6,7 @@ defmodule Tldb.Song do
     field :native_lyrics, :string
     field :translated_to_en_lyrics, :string
     field :phonetic_script, :string
+    belongs_to :album, Tldb.Album
 
     timestamps()
   end
