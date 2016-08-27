@@ -18,6 +18,7 @@ defmodule Tldb.Router do
 
     get "/", PageController, :index
     resources "/songs", SongController
+    resources "/albums", AlbumController
   end
 
   # Other scopes may use custom stacks.

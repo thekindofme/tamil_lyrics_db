@@ -1,0 +1,23 @@
+<h2>Show album</h2>
+
+<ul>
+
+  <li>
+    <strong>Title:</strong>
+    <%= @album.title %>
+  </li>
+
+  <li>
+    <strong>Artist:</strong>
+    <%= @album.artist %>
+  </li>
+
+  <li>
+    <strong>Song:</strong>
+    <%= @album.song %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: album_path(@conn, :edit, @album) %>
+<%= link "Back", to: album_path(@conn, :index) %>

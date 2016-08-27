@@ -1,0 +1,6 @@
+<h2>New album</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: album_path(@conn, :create) %>
+
+<%= link "Back", to: album_path(@conn, :index) %>
