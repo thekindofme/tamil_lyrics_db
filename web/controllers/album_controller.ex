@@ -27,7 +27,10 @@ defmodule Tldb.AlbumController do
   end
 
   def show(conn, %{"id" => id}) do
-    album = Repo.get!(Album, id)
+    album = Album 
+    |> Repo.get(id) 
+    |> Repo.preload(:songs)
+
     render(conn, "show.html", album: album)
   end
 

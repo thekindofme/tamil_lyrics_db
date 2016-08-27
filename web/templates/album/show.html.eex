@@ -14,7 +14,9 @@
 
   <li>
     <strong>Songs:</strong>
-    
+    <%= for {song} <- @album.songs do %>
+        <%= link song.title, to: song_path(@conn, :show, song) %>
+    <% end %>
   </li>
 
 </ul>
