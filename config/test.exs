@@ -12,8 +12,7 @@ config :logger, level: :warn
 # Configure your database
 config :tldb, Tldb.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
   database: "tldb_test",
   hostname: "localhost",
+  port: 15432,
   pool: Ecto.Adapters.SQL.Sandbox
