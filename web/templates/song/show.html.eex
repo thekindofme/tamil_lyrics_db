@@ -1,4 +1,5 @@
-<%= link "Back", to: song_path(@conn, :index) %>
+<%= link "< Back", to: song_path(@conn, :index) %>
+<%= link "Edit", to: song_path(@conn, :edit, @song), class: "pull-right" %>
 <h2><%= @song.title %></h2>
 
 <div>
@@ -33,6 +34,3 @@
     </li>
 </ul>
 </div>
-
-
-<%= link "Edit", to: song_path(@conn, :edit, @song) %>

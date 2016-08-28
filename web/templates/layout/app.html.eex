@@ -14,12 +14,11 @@
   <body>
     <div class="container">
       <header class="header">
-        <nav role="navigation">
-          <ul class="nav nav-pills pull-right">
-            <li><a href="http://www.phoenixframework.org/docs">Get Started</a></li>
-          </ul>
+        <nav class="navbar navbar-default">
+          <a class="navbar-brand" href="/songs">Lyrics DB</a>
+          <p class="navbar-text"><a href="/albums" class="navbar-link">Albums</a></p>
+          <p class="navbar-text"><a href="/songs" class="navbar-link">Songs</a></p>
         </nav>
-        <span class="logo"></span>
       </header>
 
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
