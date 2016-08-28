@@ -1,28 +1,38 @@
-<h2>Show song</h2>
+<%= link "Back", to: song_path(@conn, :index) %>
+<h2><%= @song.title %></h2>
 
-<ul>
+<div>
 
-  <li>
-    <strong>Title:</strong>
-    <%= @song.title %>
-  </li>
-
-  <li>
-    <strong>Native lyrics:</strong>
-    <%= @song.native_lyrics %>
-  </li>
-
-  <li>
-    <strong>Translated to en lyrics:</strong>
-    <%= @song.translated_to_en_lyrics %>
-  </li>
-
-  <li>
-    <strong>Phonetic script:</strong>
-    <%= @song.phonetic_script %>
-  </li>
-
+<ul class="tabs">
+    <li>
+        <input type="radio" name="tabs" id="tab1" checked />
+        <label for="tab1">Tanglish</label>
+        <div id="tab-content1" class="tab-content">
+          <pre>
+            <p><%= @song.phonetic_lyrics %></p>
+          </pre>
+        </div>
+    </li>
+    <li>
+        <input type="radio" name="tabs" id="tab2" />
+        <label for="tab2">Tamil</label>
+        <div id="tab-content2" class="tab-content">
+          <pre>
+            <p><%= @song.original_lyrics %></p>
+          </pre>
+        </div>
+    </li>
+    <li>
+        <input type="radio" name="tabs" id="tab3" />
+        <label for="tab3">English</label>
+        <div id="tab-content3" class="tab-content">
+          <pre>
+            <p><%= @song.translated_lyrics %></p>
+          </pre>
+        </div>
+    </li>
 </ul>
+</div>
+
 
 <%= link "Edit", to: song_path(@conn, :edit, @song) %>
-<%= link "Back", to: song_path(@conn, :index) %>
