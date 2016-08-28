@@ -17,4 +17,12 @@ defmodule Tldb.Album do
     |> cast(params, [:title, :artist])
     |> validate_required([:title, :artist])
   end
+
+  def alphabetical(query) do
+    from c in query, order_by: c.title
+  end
+
+  def titles_and_ids(query) do
+    from c in query, select: {c.title, c.id}
+  end
 end

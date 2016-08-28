@@ -2,6 +2,9 @@ defmodule Tldb.SongController do
   use Tldb.Web, :controller
 
   alias Tldb.Song
+  alias Tldb.Album
+
+  plug :load_albums when action in [:new, :create, :edit, :update]
 
   def index(conn, _params) do
     songs = Repo.all(Song)
@@ -61,5 +64,14 @@ defmodule Tldb.SongController do
     conn
     |> put_flash(:info, "Song deleted successfully.")
     |> redirect(to: song_path(conn, :index))
+  end
+
+  defp load_albums(conn, _) do
+    query =
+      Album
+      |> Album.alphabetical
+      |> Album.titles_and_ids
+    albums = Repo.all(query)  
+    assign(conn, :albums, albums)
   end
 end

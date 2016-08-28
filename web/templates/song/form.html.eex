@@ -30,6 +30,12 @@
   </div>
 
   <div class="form-group">
+    <%= label f, :album_id,  class: "control-label" %>
+    <%= select f, :album_id, @albums, class: "form-control" %>
+    <%= error_tag f, :album_id %>
+  </div>
+
+  <div class="form-group">
     <%= submit "Submit", class: "btn btn-primary" %>
   </div>
 <% end %>
