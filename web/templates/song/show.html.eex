@@ -9,7 +9,7 @@
         <label for="tab1">Tanglish</label>
         <div id="tab-content1" class="tab-content">
           <pre>
-            <p><%= @song.phonetic_lyrics %></p>
+            <p><%= @song.phonetic_script %></p>
           </pre>
         </div>
     </li>
@@ -18,7 +18,7 @@
         <label for="tab2">Tamil</label>
         <div id="tab-content2" class="tab-content">
           <pre>
-            <p><%= @song.original_lyrics %></p>
+            <p><%= @song.native_lyrics %></p>
           </pre>
         </div>
     </li>
@@ -27,7 +27,7 @@
         <label for="tab3">English</label>
         <div id="tab-content3" class="tab-content">
           <pre>
-            <p><%= @song.translated_lyrics %></p>
+            <p><%= @song.translated_to_en_lyrics %></p>
           </pre>
         </div>
     </li>
