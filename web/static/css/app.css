@@ -113,3 +113,8 @@ p.link a {
 p.link a:hover {
   background-color: #522764;
 }
+
+.listy-list {
+  clear: both;
+  padding: 0.5em 0;
+}

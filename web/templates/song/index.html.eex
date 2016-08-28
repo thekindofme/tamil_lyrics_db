@@ -1,6 +1,6 @@
-  <ul>
+  <ol>
   <%= for song <- @songs do %>
-      <li>
+      <li class="listy-list">
         <span><%= link song.title, to: song_path(@conn, :show, song) %></span>
 
         <span class="pull-right">
@@ -9,6 +9,6 @@
         </span>
       </li>
   <% end %>
-  </ul>
+</ol>
 
 <%= link "New song", to: song_path(@conn, :new), class: "btn btn-default btn-primary btn-xs" %>
