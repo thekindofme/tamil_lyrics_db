@@ -3,7 +3,7 @@ defmodule Tldb.SongTest do
 
   alias Tldb.Song
 
-  @valid_attrs %{native_lyrics: "some content", phonetic_script: "some content", title: "some content", translated_to_en_lyrics: "some content"}
+  @valid_attrs %{native_lyrics: "some content", phonetic_script: "some content", title: "some content", translated_to_en_lyrics: "some content", album_id: "1"}
   @invalid_attrs %{}
 
   test "changeset with valid attributes" do

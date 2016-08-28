@@ -2,8 +2,22 @@ defmodule Tldb.SongControllerTest do
   use Tldb.ConnCase
 
   alias Tldb.Song
-  @valid_attrs %{native_lyrics: "some content", phonetic_script: "some content", title: "some content", translated_to_en_lyrics: "some content"}
+  alias Tldb.Album
+
+  defp valid_attrs do
+    %{
+      native_lyrics: "some content", phonetic_script: "some content", title: "some content", translated_to_en_lyrics: "some content", 
+      album_id: Tldb.Repo.get_by(Album, title: "test").id
+    }
+  end
+
   @invalid_attrs %{}
+
+  setup do
+    Album.changeset(%Album{}, %{title: "test", artist: "test"})
+    |> Repo.insert
+    {:ok, conn: build_conn()}
+  end
 
   test "lists all entries on index", %{conn: conn} do
     conn = get conn, song_path(conn, :index)
@@ -16,9 +30,9 @@ defmodule Tldb.SongControllerTest do
   end
 
   test "creates resource and redirects when data is valid", %{conn: conn} do
-    conn = post conn, song_path(conn, :create), song: @valid_attrs
+    conn = post conn, song_path(conn, :create), song: valid_attrs
     assert redirected_to(conn) == song_path(conn, :index)
-    assert Repo.get_by(Song, @valid_attrs)
+    assert Repo.get_by(Song, valid_attrs)
   end
 
   test "does not create resource and renders errors when data is invalid", %{conn: conn} do
@@ -46,9 +60,9 @@ defmodule Tldb.SongControllerTest do
 
   test "updates chosen resource and redirects when data is valid", %{conn: conn} do
     song = Repo.insert! %Song{}
-    conn = put conn, song_path(conn, :update, song), song: @valid_attrs
+    conn = put conn, song_path(conn, :update, song), song: valid_attrs
     assert redirected_to(conn) == song_path(conn, :show, song)
-    assert Repo.get_by(Song, @valid_attrs)
+    assert Repo.get_by(Song, valid_attrs)
   end
 
   test "does not update chosen resource and renders errors when data is invalid", %{conn: conn} do

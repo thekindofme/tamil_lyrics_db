@@ -16,7 +16,7 @@ defmodule Tldb.Song do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:title, :native_lyrics, :translated_to_en_lyrics, :phonetic_script])
-    |> validate_required([:title, :native_lyrics, :translated_to_en_lyrics, :phonetic_script])
+    |> cast(params, [:title, :native_lyrics, :translated_to_en_lyrics, :phonetic_script, :album_id])
+    |> validate_required([:title, :native_lyrics, :translated_to_en_lyrics, :phonetic_script, :album_id])
   end
 end
