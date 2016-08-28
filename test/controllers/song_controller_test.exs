@@ -6,7 +6,7 @@ defmodule Tldb.SongControllerTest do
 
   defp valid_attrs do
     %{
-      native_lyrics: "some content", phonetic_script: "some content", title: "some content", translated_to_en_lyrics: "some content", 
+      native_lyrics: "some content", phonetic_script: "some content", title: "Best Song DDFAAW!", translated_to_en_lyrics: "some content", 
       album_id: Tldb.Repo.get_by(Album, title: "test").id
     }
   end
@@ -41,9 +41,9 @@ defmodule Tldb.SongControllerTest do
   end
 
   test "shows chosen resource", %{conn: conn} do
-    song = Repo.insert! %Song{}
+    song = Repo.insert! Song.changeset(%Song{}, valid_attrs)
     conn = get conn, song_path(conn, :show, song)
-    assert html_response(conn, 200) =~ "Show song"
+    assert html_response(conn, 200) =~ "Best Song DDFAAW!"
   end
 
   test "renders page not found when id is nonexistent", %{conn: conn} do
