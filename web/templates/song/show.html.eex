@@ -1,7 +1,6 @@
 <%= link "< Back", to: song_path(@conn, :index) %>
 <%= link "Edit", to: song_path(@conn, :edit, @song), class: "pull-right" %>
-<h2><%= @song.title %></h2>
-
+<h2><%= @song.title %> (<%= @song.album.title %>)</h2>
 <div>
 
 <ul class="tabs">

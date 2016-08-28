@@ -30,7 +30,10 @@ defmodule Tldb.SongController do
   end
 
   def show(conn, %{"id" => id}) do
-    song = Repo.get!(Song, id)
+    song = Song
+    |> Repo.get!(id)
+    |> Repo.preload(:album)
+
     render(conn, "show.html", song: song)
   end
 
@@ -71,7 +74,7 @@ defmodule Tldb.SongController do
       Album
       |> Album.alphabetical
       |> Album.titles_and_ids
-    albums = Repo.all(query)  
+    albums = Repo.all(query)
     assign(conn, :albums, albums)
   end
 end
